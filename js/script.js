@@ -141,6 +141,7 @@ var visaPattern = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
 var mastPattern = /^(?:5[1-5][0-9]{14})$/;
 var amexPattern = /^(?:3[47][0-9]{13})$/;
 var discPattern = /^(?:6(?:011|5[0-9][0-9])[0-9]{12})$/;
+var cvv =         /^[0-9]{3,4}$/;
 
 $("cc-number").addEventListener("blur", function () {
 	"use strict";
