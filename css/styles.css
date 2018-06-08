@@ -1,0 +1,108 @@
+body{
+	font-family:fantasy;
+	background-color: black;
+	background-image: url(/images/background-pizza-no-forno-4.jpg);
+    background-attachment: fixed;
+    background-size:cover;
+	background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+#side{
+	height: auto;
+	border: solid;
+	border-width: 2px;
+	border-color: darkred;
+	border-radius: 10px;
+	border-width: 1px;
+	background-color: #FFD700;
+}
+h4{
+	background-color: darkred;
+	color: white;
+	border-radius: 10px 10px 0 0;
+	padding-bottom: 2px;
+	padding-top: 10px;
+	text-align: center;
+}
+#side h6{margin-bottom: -10px;}
+main{
+	padding-top: 20px;
+}
+fieldset{
+	border: solid;
+	border-width: 2px;
+	border-color: darkred;
+	border-radius: 10px;
+	padding-left: 4px;
+	padding-right: 5px;
+	margin-bottom: 10px;
+	background-color: white;
+}
+#payment{
+    display: none;
+	margin-top: 20px;
+	padding: 10px;
+	margin-left: -15px;
+}
+#pizzaSection{
+	background-color: #FFD700;
+	border-radius: 10px;
+	padding: 20px;
+	margin: 20px 0 20px 0;
+}
+#otherChoice {
+    display: none;
+}
+#pizzaChoice, #cheeseChoice, #sauceChoice{
+	background-color: darkred;
+	color: white;
+	border-color: black;
+	text-indent: 1em;
+	font-size: 15px;
+}
+#toppingSection{
+	background-color: #FFD700;
+	border-radius: 10px;
+	font-size: 14px;
+	padding: 12px;
+	margin: 20px 0 20px 0;
+	color: darkred;
+	font-weight: 500;
+	text-align: left;
+}
+#toppingSection h6{
+	color: white;
+	background-color: darkred;
+	height:  30px;
+	padding: 5px;
+	border-radius: 5px;
+	text-align: center;
+	border: solid;
+	border-width: 1px;
+	border-color: black;
+}
+#toppingSection p{
+	color: black;
+	height: 2px;
+}
+#btn{
+	background-color: darkred;
+	color: white;
+	border: solid;
+	border-width: 1px;
+	border-color: black;
+} 
+ul, li,a{
+	border-radius: 10px;
+	color: darkred;
+}
+a:hover{
+	color: black;
+}
+li{color: white;}
+#totalBox{padding-top: 5px;padding-bottom: 5px;}
+#totalPrice{max-height: none;}
+ul{margin-top: 20px;}
+footer{color: white;padding-top: 20px;}
+#added, #extras, #extras2, #top{font-family: sans-serif;padding-top: 10px;word-wrap:break-word;}

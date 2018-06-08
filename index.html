@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Diablo's Pizza</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="jumbotron-narrow.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+  </head>
+
+  <body>    
+    <!--logo-->
+    <div class="container">
+     <div class="image-logo">
+         <img src="images/diablos_pizza.png" style="width: 50%;height: auto;margin-left: auto;margin-right: auto;display: block;"/>
+     </div>
+		<div>
+			<ul class="nav nav-pills nav-fill" style="background-color: white;border: solid;border-color: darkred;border-width: 2px;">
+				<li class="nav-item">
+					<a class="nav-link" href="#">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Menu</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Order Online</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link disabled" href="#">Contact Us</a>
+				</li>
+			</ul>
+		</div>
+        
+      <main role="main">
+        <!--Form-->
+         <form id="myDIV" name="myDIV">
+          <div class="row marketing">
+              <div class="col-lg-8">
+                      <fieldset>
+                          <!--customer name-->
+                          <div class="form-group">
+                              <h2>Customer Information</h2>
+                              <label for="usr">name:</label>
+							  <div id ="errors" style="text-align: right;margin-right: 10px;height: 0;color: darkred"></div>
+                              <input type="text" class="form-control" id="usr" name="usr" onblur="validate()">
+                          </div>
+                          <!--customer lastname-->
+                          <div>
+                              <label for="lastName">Last Name:</label>
+							  <div id ="errorL2" style="text-align: right;margin-right: 10px;height: 0;color: green;"></div>
+							  <div id ="errorL" style="text-align: right;margin-right: 10px;height: 0;color: darkred"></div>
+                              <input type="text" class="form-control" id="lastName" onblur="validate()">
+                          </div>
+                          <!--cutomer phone number input-->
+                          <div>
+                              <label for="phone">Phone Number:</label>
+							  <div id ="errorP2" style="text-align: right;margin-right: 10px;height: 0;color: green;"></div>
+							  <div id ="errorP" style="text-align: right;margin-right: 10px;height: 0;color: darkred"></div>
+                              <input type="text" class="form-control" id="phone" placeholder="000-000-0000" onblur="validate()">
+                          </div>
+                          <!--Customer Email Input-->
+                          <div>
+                              <label>Email:</label>
+							  <div id ="errorE2" style="text-align: right;margin-right: 10px;height: 0;color: green;"></div>
+							  <div id ="errorE" style="text-align: right;margin-right: 10px;height: 0;color: darkred"></div>
+                              <input type="text" class="form-control" id="email" name="email" onblur="validate()">
+                          </div>
+                          <!--CUSTOMER ADDRESS OPTION DROPDOWN ALL BUTTONS DISABLED EXCEPT FOR OTHER OPTION-->
+                          <div class="form-group">
+                              <label for="address">Address Type</label>
+                              <select class="form-control" id="addressDrop" onchange="validate()">
+                                  <option value="house">House</option>
+                                  <option value="apartment">Apartment</option>
+                                  <option value="business">business</option>
+                                  <option value="campus">campus</option>
+                                  <option value="hotel">hotel</option>
+                                  <option value="dorm">dorm</option>
+                                  <option id="other">other</option>
+                                  <!-- HIDDEN INPUT -->
+                                  <input type="text" class="form-control" placeholder="Enter type of address" id="otherChoice" onblur="validate()">
+                              </select>
+                          </div>
+                              <!--ADDRESS AND APARTMENT #-->
+                              <div class="form-row">
+                                  <div class="col">
+									  <label for="address">Address</label>
+									  <div id ="errorA2" style="text-align: right;margin-right: 10px;height: 0;color: green"></div>
+									  <div id ="errorA" style="text-align: right;margin-right: 10px;height: 0;color: darkred"></div>
+                                      <input type="text" class="form-control" style="margin-top: 5px" placeholder="Address" id="address" onblur="validate()">
+                                  </div>
+								  <!--BUILDING # FIELD-->
+                                  <div class="col-3">
+									  <label for="address">Building #</label>
+                                      <input type="text" class="form-control" style="margin-top: 5px" placeholder="Building #" id="unitNumber" onblur="validate()">
+									  <div id ="errorBu" style="color: red"></div>
+                                  </div>
+                              </div>
+                          <!--CITY,STATE AND ZIPCODE INPUTS-->
+                              <div class="form-row">
+                                  <div class="col">
+									  <label for="address">City</label>
+									  <div id ="errorC2" style="text-align: right;margin-right: 10px;height: 0;color: green"></div>
+									  <div id ="errorC" style="text-align: right;margin-right: 10px;height: 0;color: darkred"></div>
+                                      <input type="text" class="form-control" style="margin-top: 5px" placeholder="city" id="city" onblur="validate()">
+                                  </div>
+                                  <div class="col">
+									  <label for="state" style="padding-bottom: 5px;">State</label>
+									  <select class="form-control" id="stateDrop" onchange="validate()">
+										  <option value="alaska">AK</option>
+										  <option value="california">CA</option>
+									  </select>
+                                  </div>
+                                  <div class="coL">
+									  <label for="address">Zip Code</label>
+									  <div id ="errorZ2" style="text-align: right;margin-right: 10px;height: 0;color: green"></div>
+									  <div id ="errorZ" style="text-align: right;margin-right: 10px;height: 0;color: darkred"></div>
+                                      <input type="text" class="form-control" style="margin-top: 5px" placeholder="zip code" id="zip" onblur="validate()">
+                                  </div>
+                              </div>
+						  <!--RADIO BUTTONS TO CHOOSE PIZZA-->
+						  <div class="container" id="pizzaSection">
+						  <h5>Build Your Pizza</h5>
+						  <div class="form-check form-check-inline">
+							  <input type="radio" name="" id="hand" value="hand">
+							  <label>Hand Tossed</label>
+						  </div>
+						  <div class="form-check form-check-inline">
+							  <input type="radio" name="" id="thin">
+							  <label>Thin Crust </label>
+						  </div>
+						  <div class="form-check form-check-inline">
+							  <input type="radio" name="" id="york">
+							  <label>New York Style</label>
+						  </div>
+						  <div class="form-check form-check-inline">
+							  <input type="radio" name="" id="gluten">
+							  <label>Gluten Free</label>
+						  </div>
+						  <!--CHOOSE PIZZA DYNAMICALLY POPULATED DROPDOWN MENU-->
+						  <div class="input-group mb-3">
+							  <div class="input-group-prepend">
+								  <label class="input-group-text" for="" id="pizzaChoice">Choose Pizza&emsp;&emsp;&emsp;</label>
+							  </div>
+							  <select class="custom-select" id="select" onchange="return calculateTotal()"><option>Choose Pizza</option></select>
+						  </div>
+						  <h6>Add Extras</h6>
+						  <!--EXTRA CHEESE OPTION-->
+						  <!--ONCHANGE ON SELECT-->
+						  <div class="input-group mb-3">
+							  <div class="input-group-prepend">
+								  <label class="input-group-text" for="cheese" id="cheeseChoice">Add Extra Cheese &dollar;</label>
+							  </div>
+							  <select class="custom-select" id="cheese" name="cheese" onchange="return calculateTotal()">
+								  <option default>Light: no charge</option>
+								  <option defaul>Normal (default): no charge</option>
+								  <option value="2.99" id="extra">Extra: +$2.99</option>
+								  <option value="3.99" id="double">Double: +$3.99</option>
+							  </select>
+						  </div>
+						  <!--SAUCE OPTION-->
+						  <!--ONCHANGE ON SELECT-->
+						  <div class="input-group mb-3">
+							  <div class="input-group-prepend">
+								  <label class="input-group-text" for="sauce" id="sauceChoice">Extra Sauce&emsp;&emsp;&emsp;&nbsp;&nbsp;</label>
+							  </div>
+							  <select class="custom-select" id="sauce" name="sauce" onchange="return calculateTotal()">
+								  <option>Regular Tomato: no charge</option>
+								  <option value="0.99" id="tomato">Hearty Tomato: +$.99</option>
+								  <option value="1.99" id="bbq">  BBQ Sauce: +$1.99</option>
+							  </select>
+						  </div>
+						  </div>
+						  <!--CHECKBOXES FOR TOPPINS-->
+						  <!--ONCLICK ON ALL BOXES-->
+						  <div id="toppingSection">
+							  <h6>Toppings $.99 extra</h6>
+							  <p>Meats</p>
+							  <label class="form-check-inline"><input type="checkbox" value="pep" id="pep" onclick="calculateTotal()">Pepperoni</label>
+							  <label class="form-check-inline"><input type="checkbox" value="sa" id="sa" onclick="calculateTotal()">Sasauge</label>
+							  <label class="form-check-inline"><input type="checkbox" value="ham" id="ham" onclick="calculateTotal()">Ham</label>
+							  <label class="form-check-inline"><input type="checkbox" value="bacon" id="bacon" onclick="calculateTotal()">Bacon</label>
+							  <label class="form-check-inline"><input type="checkbox" value="salami" id="salami" onclick="calculateTotal()">Salami</label>
+							  <p>veggies</p>
+							  <label class="form-check-inline"><input type="checkbox" value="peppers" id="peppers" onclick="calculateTotal()">Peppers</label>
+							  <label class="form-check-inline"><input type="checkbox" value="olives" id="olives" onclick="calculateTotal()">Olives</label>
+							  <label class="form-check-inline"><input type="checkbox" value="jala" id="jala" onclick="calculateTotal()">Jalapeño</label>
+							  <label class="form-check-inline"><input type="checkbox" value="mush" id="mush" onclick="calculateTotal()">Mushrooms</label>
+							  <label class="form-check-inline"><input type="checkbox" value="pine" id="pine" onclick="calculateTotal()">Pineapple</label>
+							  <label class="form-check-inline"><input type="checkbox" value="onions" id="onions" onclick="calculateTotal()">Onions</label>
+						  </div>
+						  <!--RADIO BUTTONS TO HIDE AND SHOW CC INFO-->
+						  <div class="radio">
+							  <label><input type="radio"  id="cash">cash</label>
+							  <label><input type="radio"  id="card">card</label>
+						  </div>
+					  </fieldset>
+					  
+					  <!--Billing info-->
+					  <div class="container">
+						  <fieldset id="payment">
+							  <div style="padding-top: 10px;">
+								  <h2>Customer Checkout</h2>
+							  </div>
+							  <!--USER NAME INPUT-->
+							  <div class="form-group">
+								  <label for="usr">Name:</label>
+								  <input type="text" class="form-control" name="usr2" id="usr2">
+							  </div>
+							  <!--USER LAST NAME INPUT-->
+							  <div class="form-group">
+								  <label for="usr">Last Name:</label>
+								  <input type="text" class="form-control" id="lastName2">
+							  </div>
+							  <!--USER EMAIL INPUT-->
+							  <div class="form-group">
+								  <label for="exampleFormControlInput1">Email address</label>
+								  <input type="email" class="form-control" id="email2" placeholder="name@example.com">
+							  </div>
+							  <!--USER ADDRESS INPUT-->
+								  <div class="form-group">
+									  <label for="address2">Address</label>
+									  <input type="text" class="form-control" id="address2">
+								  </div>
+								 <!-- USER CITY INPUT-->
+								  <div class="form-row">
+									  <div>
+										  <input type="text" class="form-control" style="margin-top: 5px" placeholder="city" id="city2">
+									  </div>
+									  <!--USER STATE INPUT-->
+									  <div class="col">
+										  <input type="text" class="form-control" style="margin-top: 5px" placeholder="state" id="state2">
+									  </div>
+									  <!--USER ZIP CODE INPUT-->
+									  <div class="col">
+										  <input type="text" class="form-control" style="margin-top: 5px" placeholder="Zip code" id="zip2">
+									  </div>
+								  </div>
+							  <!--BUTTON TO AUTO FILL ALL USER INPUTS-->
+							  <div class="radio">
+								  <label class="checkbox-inline"><input type="checkbox" value="" id="autoFill" name="autoFill">Same as Delivery</label>
+							  </div>
+							  <!--CREDIT CARD NAME AND NUMBER-->
+							  <div class="form-row">
+								  <div class="col">
+									  <label for="cc-name">Name on card</label>
+									  <input type="text" class="form-control" id="cc-name" placeholder="">
+									  <small class="text-muted">Full name as displayed on card</small>
+								  </div>
+								  <div class="col">
+									  <div id ="card2" style="text-align: right;margin-right: 10px;height: 0;font-size: 20px;color: red;"></div>
+							          <div id ="card1" style="text-align: right;margin-right: 10px;height: 0;color: blac0;"></div>
+									  <label for="cc-number">Credit card number</label>
+									  <input type="text" class="form-control" id="cc-number" placeholder="Credit Card">
+								  </div>
+							  </div>
+							  <div class="row">
+								  <div class="col-md-3 mb-3">
+									  <label for="cc-expiration">Expiration</label>
+									  <input type="text" class="form-control" id="cc-expiration" placeholder="Expiration">
+								  </div>
+								  <div class="col-md-3 mb-3">
+									  <label for="cc-expiration">CVV</label>
+									  <input type="text" class="form-control" id="cc-cvv" placeholder="cvv">
+									  <div class="invalid-feedback">
+									  </div>
+								  </div>
+							  </div>
+							  <hr class="mb-4">
+						  </fieldset>
+					  </div>
+			  </div>
+			  
+			  
+			  
+			  <!--display total-->
+			  <div class="col-lg-4" id="totalBox">
+				  <div class="container" id="side">
+					  <div class="row">
+						  <h4 class="col">Your Cart</h4>
+					  </div>
+					  <div>
+						  <h6 class="text-left">Your Info</h6><br>
+						  <div id="top"></div>
+					  </div>
+					  <hr>
+					  <!--TOTAL PRICE-->
+					  <div>
+						  <h6 class="text-left">Your total</h6>
+						  <div id="totalPrice"></div>
+					  </div>
+					  <div>
+						  <div id="extras"></div>
+						  <div id="extras2"></div>
+					  </div>
+					  <hr>
+					  <!--SUMMARY-->
+					  <div>
+						  <h6 class="text-left">Added Toppins</h6>
+						  <div id="added"></div>
+					  </div>
+					  <hr>
+				  </div>
+			  </div>
+		  </div>
+			 <div class="col-8">
+				 <button type="submit" name="submit" class="btn btn-primary btn-lg btn-block" id="btn" onclick="myDIV">SUBMIT</button>
+			 </div>
+		  </form>
+		</main>
+		<footer class="footer" style="text-align: center;">
+			<p>&copy; Diablo's Pizza 2018</p>
+		</footer>
+
+    </div> <!-- /container -->
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    
+    <!--SCRIPT-->
+     <script src="js/script.js"></script>
+  </body>
+</html>
